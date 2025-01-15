@@ -3,7 +3,7 @@ const app = express();
 const dotEnv = require('dotenv');
 const vendorRoutes = require('./routes/vendorRoutes');
 const mongoose = require('mongoose');
-const PORT = 4000;
+const PORT = process.env.PORT || 4000;
 const bodyParser = require('body-parser');
 const firmRoutes = require('./routes/firmRoutes');
 const productRouters = require('./routes/productRoutes');
@@ -24,6 +24,6 @@ app.listen(PORT, () =>{
     console.log(`Server is runnig at ${PORT}`);
 });
 
-app.use('/home', (req, res) =>{
+app.use('/', (req, res) =>{
     res.send("Welcome to suby")
 })
